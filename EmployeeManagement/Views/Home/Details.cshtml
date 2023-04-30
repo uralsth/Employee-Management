@@ -1,9 +1,9 @@
 ﻿@model EmployeeManagement.ViewModels.HomeDetailsViewModel
 
-<html xmlns="http: / Lwww.w3.org/.1999/xhtmI">
-<head>
-</head>
-<bodY>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Employee Details";
+}
 @*    <h1>@ViewData["PageTitle"]</h1>
 
     @{
@@ -34,17 +34,15 @@
         Department: @ViewBag.Employee.Department
     </div>
 *@
-    <h1>@Model.PageTitle</h1>
+<h1>@Model.PageTitle</h1>
 
 
-    <div>
-        Name: @Model.Employee.Name
-    </div>
-    <div>
-        Email: @Model.Employee.Email
-    </div>
-    <div>
-        Department: @Model.Employee.Department
-    </div>
-</body>
-</html>
+<div>
+    Name: @Model.Employee.Name
+</div>
+<div>
+    Email: @Model.Employee.Email
+</div>
+<div>
+    Department: @Model.Employee.Department
+</div>

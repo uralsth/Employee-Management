@@ -3,26 +3,27 @@
 @{
     ViewBag.Title = "Employee List";
 }
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Department</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var employee in Model)
-        {
-            <tr>
-                <td>@employee.Id</td>
-                <td>@employee.Name</td>
-                <td>@employee.Department</td>
-            </tr>
-        }
-    </tbody>
+<div class="card-deck">
+    @foreach (var employee in Model)
+    {
+        <div class="card m-3">
+            <div class="card-header">
+                <h3>@employee.Name</h3>
+            </div>
+            <img class="card-img-top" src="~/images/breaking.png" />
+            <div class="card-footer text-center">
 
-    @section Scripts {
-        <script src="~/js/customscript.js"></script>
+                @*Tag Helper*@
+                <a asp-controller="home" asp-action="details" asp-route-id="@employee.Id" class="btn btn-primary">Display</a>
+
+                @*Html Helper*@
+@*                <a href="@Url.Action("details", "home", new { id = employee.Id})" class="btn btn-primary">Show</a>
+                @Html.ActionLink("View", "details", "home", new {id = employee.Id})
+                <a href="/home/details/@employee.Id" class="btn btn-primary">View</a>
+*@
+                <a href="#" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
     }
-</table>
+</div>
